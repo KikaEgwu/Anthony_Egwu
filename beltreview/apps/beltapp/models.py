@@ -137,7 +137,7 @@ class Book(models.Model):
 class Review(models.Model):
 	rating = models.CharField(max_length=10, default='3')
 	review = models.TextField()
-	book = models.ForeignKey(Book, related_name="reviews")
+	book = models.ForeignKey(Book)
 	created_at = models.DateTimeField(auto_now_add = True)
 	updated_at = models.DateTimeField(auto_now = True)
 
