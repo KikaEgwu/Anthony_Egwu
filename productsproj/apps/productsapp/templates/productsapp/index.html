@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+</head>
+<body>
+<a href="{% url 'product_index' %}">WOOOOOOOOOOOOOO</a>
+	<h1>Hello World!</h1>
+	<form method="POST" action="{% url 'product_create' %}">
+		{% csrf_token %}
+		Name: <input name="name">
+		Price: <input name="price">
+		Description: <textarea name="description"></textarea>
+		<input type="submit" name="submit">
+	</form>
+	{% for product in products %}
+		Id: {{product.id}}
+		Name: {{product.name}} 
+		Price: {{product.price}}
+		Description: {{product.description}}
+		<a href="/products/{{product.id}}">View More</a>
+		<hr/>
+	{% endfor %}
+</body>
+</html>

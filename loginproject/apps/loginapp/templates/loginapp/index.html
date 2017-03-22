@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bro</title>
+</head>
+<body>
+<h1>Hello World!</h1>
+<h3>Registration</h3>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="POST" action="/login/register">
+	{% csrf_token %}
+	First Name: <input type="" name="first_name"><br/>
+	Last Name: <input type="" name="last_name"><br/>
+	Email: <input type="" name="email">	<br/>
+	Password: <input type="password" name="password"><br/>
+	Confirm Password: <input type="password" name="password_confirm"><br/>
+	<input type="submit" name="">
+</form>
+
+<h3>Login</h3>
+<form method="POST" action="/login/login">
+	{% csrf_token %}
+	Email: <input type="" name="email"><br/>
+	Password: <input type="password" name="password"><br/>
+	<input type="submit" name="">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+</head>
+<body>
+<a href="{% url 'integration_index' %}">Home Page</a>
+	<h1>Products Home Page</h1>
+	<form method="POST" action="{% url 'product_create' %}">
+		{% csrf_token %}
+		Name: <input name="name">
+		Price: <input name="price">
+		Description: <textarea name="description"></textarea>
+		<input type="submit" name="submit">
+	</form>
+	{% for product in products %}
+		<hr/>
+		Id: {{product.id}}
+		Name: {{product.name}} 
+		Price: {{product.price}}
+		Description: {{product.description}}
+		<a href="{% url 'product_show' id=product.id %}">View More</a>		
+	{% endfor %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Integrated app page</title>
+</head>
+<body>
+<h1>Home Page!</h1>
+<a href="{% url 'ninja_index' %}"><h3>Ninja App Home Page</h3></a>
+	<ol>
+		<li><a href="{% url 'ninja_index' %}red">Red</a></li>
+		<li><a href="{% url 'ninja_index' %}blue">Blue</a></li>
+		<li><a href="{% url 'ninja_index' %}orange">Orange</a></li>
+		<li><a href="{% url 'ninja_index' %}purple">Purple</a></li>
+		<li><a href="{% url 'ninja_index' %}ninjas">All the Ninja Turtles</a></li>
+	</ol>
+<a href="{% url 'word_index' %}"><h3>Random Word Generator Home Page</h3></a>
+<a href="{% url 'product_index' %}"><h3>Products App</h3></a>
+<a href="{% url 'course_index' %}"><h3>Courses App</h3></a>
+</body>
+</html>

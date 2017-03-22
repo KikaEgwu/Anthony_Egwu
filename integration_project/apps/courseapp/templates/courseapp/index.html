@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja App!</title>
+</head>
+<body>
+	<h1>Add a new course</h1>
+	{% if messages %}
+		<ul class="messages">
+    		{% for message in messages %}
+    			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    		{% endfor %}
+		</ul>
+	{% endif %}
+	<form method="POST" action="{% url 'course_create' %}">
+		{% csrf_token %}
+		Name: <input type="" name="name">
+		Description: <input type="" name="description">
+		<input type="submit" name="">
+	</form>
+	<br>
+	<a href="{% url 'integration_index' %}">Back to Home Page</a>
+	<br>
+	<h2>Courses</h2>
+		<table>
+			<tr>
+    			<th>Course Name</th>
+    			<th>Description</th> 
+    			<th>Date Added</th>
+    			<th>Actions</th>
+  			</tr>
+	{% for user in users %}
+			<tr>
+				<td>{{user.name}}</td>
+				<td>{{user.description}}</td>
+				<td>{{user.created_at}}</td>
+				<td>
+					<form action="{% url 'course_delete' id=user.id %}" method="POST">
+						{% csrf_token %}
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+			</tr>
+	{% endfor %}
+</body>
+</html>

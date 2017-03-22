@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All the ninjas</title>
+</head>
+<body>
+	<h1>Place all four ninja turtles here!</h1>
+	{% if leonardo %}
+		<img src="http://vignette4.wikia.nocookie.net/tmnt/images/6/62/Retro_leo.jpg/revision/latest?cb=20131019131259">
+	{% endif %}
+
+	{% if michelangelo %}
+		<img src="http://vignette4.wikia.nocookie.net/tmnt/images/c/c0/Retro_mikey.gif/revision/latest?cb=20131019131723">
+	{% endif %}
+
+
+	{% if donatello %}
+		<img src="http://vignette2.wikia.nocookie.net/tmnt/images/6/6c/Retro_donnie.gif/revision/latest?cb=20131019131626">
+	{% endif %}
+
+
+	{% if raphael %}
+		<img src="http://vignette2.wikia.nocookie.net/tmnt/images/1/11/Retro_raph.jpg/revision/latest?cb=20131019131517">
+	{% endif %}
+
+
+	{% if megan %}
+		<img src="http://i.huffpost.com/gen/1075328/images/o-MEGAN-FOX-facebook.jpg">
+	{% endif %}
+	<a href="{% url 'integration_index' %}">Back to Home Page</a>
+</body>
+</html>

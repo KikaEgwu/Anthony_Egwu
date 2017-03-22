@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Books Home</title>
+</head>
+<body>
+<h1>Welcome, {{request.session.username}}</h1>
+<a href="{% url 'dashboard' %}">Home</a>
+<a href="{% url 'logout' %}">Logout</a>
+<h2>Add a New Book Title and a Review</h2>
+<form method="POST" action="{% url 'addbook' %}">
+	{% csrf_token %}
+	Book Title: <input type="" name="title">
+	Author: <input type="" name="author">
+	<input type="submit" name="submit">
+</form>
+<h2>Add a review for a book</h2>
+<form method='POST' action="{% url 'addreview' %}">
+	{% csrf_token %}
+	<select name='book'>
+		{% for book in books %}
+			<option value='{{book.id}}'>{{book.title}}</option>
+		{% endfor %}
+	</select>
+	Review: <input type="text" name='review'>
+	Rating: <input type="number" name="rating" min="1" max="5">
+	<input type="submit" name="submit">	
+</form>
+
+</body>
+</html>

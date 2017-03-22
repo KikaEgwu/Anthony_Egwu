@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit!</title>
+</head>
+<body>
+<h1>{{product}}</h1>
+<form method="POST" action="/products/{{product.id}}/update">
+	{% csrf_token %}
+	Name: <input type="" name="name" value="{{product.name}}">
+	Price: <input type="" name="price" value="{{product.price}}">
+	Description: <input type="" name="description" value="{{product.description}}">
+	<input type="submit" name="">
+</form>
+</body>
+</html>
