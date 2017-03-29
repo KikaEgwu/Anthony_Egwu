@@ -10,11 +10,11 @@
 <a href="{% url 'logout' %}">Logout</a>
 <h3>Reviews by {{user.name}}</h3>
 {% for review in reviews %}
-	{% if review.book.user.id == user.id %}
+	{% if review.user.id == user.id %}
 	<ul>
 		<li>Book: <a href="{% url 'bookinfo' id=review.book.id %}">{{review.book.title}}</a></li>
 		<li>Rating: {{review.rating}}</li>
-		<li><a href="{% url 'userinfo' id=review.book.user.id %}">{{review.book.user.name}}</a> says: {{review.review}}</li>
+		<li><a href="{% url 'userinfo' id=review.user.id %}">{{review.user.name}}</a> says: {{review.review}}</li>
 		<li>Posted on {{review.created_at}}</li>
 	</ul>
 	{% endif %}

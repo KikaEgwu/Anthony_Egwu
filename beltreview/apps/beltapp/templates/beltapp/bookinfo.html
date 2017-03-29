@@ -13,7 +13,7 @@
 	{% if review.book.id == book.id %}
 	<ul>
 		<li>Rating: {{review.rating}}</li>
-		<li><a href="{% url 'userinfo' id=review.book.user.id %}">{{review.book.user.name}}</a> says: {{review.review}}</li>
+		<li><a href="{% url 'userinfo' id=review.user.id %}">{{review.user.name}}</a> says: {{review.review}}</li>
 		<li>Posted on {{review.created_at}}</li>
 	</ul>
 	{% endif %}

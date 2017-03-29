@@ -113,7 +113,8 @@ class UserManager(models.Manager):
 		new_review = Review(
 			review = request.POST['review'],
 			rating = request.POST['rating'],
-			book = Book.objects.get(id=request.POST['book'])
+			user = User.objects.get(id=request.session['logged_in_user']),
+			book = Book.objects.get(id=request.POST['book']),
 			)
 		new_review.save()
 		return True
