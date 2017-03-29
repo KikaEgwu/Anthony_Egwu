@@ -17,20 +17,23 @@
 
 <a href="{% url 'addingbook' %}">Add book and Review</a>
 <a href="{% url 'logout' %}">Logout</a>
+
 <h3>Recent Book Reviews:</h3>
 {% for review in reviews %}
 	<ul>
-		<li>Book: {{review.book.title}}</li>
+		<li>Book: <a href="{% url 'bookinfo' id=review.book.id %}">{{review.book.title}}</a></li>
 		<li>Rating: {{review.rating}}</li>
-		<li>{{review.book.user.name}} says: {{review.review}}</li>
+		<li><a href="{% url 'userinfo' id=review.user.id %}">{{review.user.name}}</a> says: {{review.review}}</li>
 		<li>Posted on {{review.created_at}}</li>
 	</ul>
 {% endfor %}
 
 <h3>Recently added books</h3>
 {% for book in books %}
-	<li>{{book.title}} by {{book.author}}</li>
+	<li><a href="{% url 'bookinfo' id=book.id %}">{{book.title}}</a> by {{book.author}}</li>
 {% endfor %}
+
+<h3></h3>
 
 
 </body>

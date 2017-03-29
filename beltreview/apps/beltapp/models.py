@@ -64,6 +64,10 @@ class UserManager(models.Manager):
 		request.session['username'] = user.name
 		return True
 
+	def logout(self, request):
+		request.session['logged_in_user'] = null
+		request.session['username'] = null
+
 	def addbook(self, request):
 		is_valid = True
 
@@ -137,6 +141,7 @@ class Book(models.Model):
 class Review(models.Model):
 	rating = models.CharField(max_length=10, default='3')
 	review = models.TextField()
+	user = models.ForeignKey(User)
 	book = models.ForeignKey(Book)
 	created_at = models.DateTimeField(auto_now_add = True)
 	updated_at = models.DateTimeField(auto_now = True)

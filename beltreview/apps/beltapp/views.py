@@ -69,3 +69,33 @@ def addreview(request):
 		return redirect(reverse('dashboard'))
 	else:
 		return redirect(reverse('addingbook'))
+
+def bookinfo(request, id):
+	users = User.objects.all()
+
+	book = Book.objects.get(id=id)
+
+	reviews = Review.objects.all()
+
+	context = {
+
+		"users": users,
+		"book": book,
+		"reviews": reviews,
+		}
+	return render(request, 'beltapp/bookinfo.html', context)
+
+def userinfo(request, id):
+	user = User.objects.get(id=id)
+
+	books = Book.objects.all()
+
+	reviews = Review.objects.all()
+
+	context = {
+
+		"user": user,
+		"books": books,
+		"reviews": reviews,
+		}
+	return render(request, 'beltapp/user.html', context)
